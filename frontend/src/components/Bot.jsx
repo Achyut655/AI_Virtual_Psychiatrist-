@@ -5,8 +5,13 @@ import { GoogleGenerativeAI } from '@google/generative-ai';
 import NavBar from "./NavBar";
 import EmotionDetector from "./EmotionDetector";
 
-const genAI = new GoogleGenerativeAI('AIzaSyDvhMdOnxPcY0QqfUSQCBqKG8fhFyKIQdI');
+import dotenv from 'dotenv';
+dotenv.config();
+import { GoogleGenerativeAI } from '@google/generative-ai';
+
+const genAI = new GoogleGenerativeAI(process.env.GOOGLE_API_KEY);
 const model = genAI.getGenerativeModel({ model: 'gemini-1.5-pro' });
+
 
 const Bot = () => {
   const [messages, setMessages] = useState([]);
